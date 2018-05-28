@@ -12,3 +12,8 @@ docker exec -it kafka_kafka_1 /opt/kafka/bin/kafka-console-consumer.sh --bootstr
 
 application6 실행
 
+https://github.com/spring-cloud/spring-cloud-stream-binder-kafka/blob/master/spring-cloud-stream-binder-kafka-docs/src/main/asciidoc/overview.adoc
+
+
+
+
