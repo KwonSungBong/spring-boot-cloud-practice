@@ -7,3 +7,4 @@ https://dzone.com/articles/spring-cloud-stream-with-kafka
 
 https://github.com/spring-cloud/spring-cloud-stream-samples/tree/master/processor-samples/reactive-processor
 
+https://docs.spring.io/spring-cloud-stream/docs/current/reference/htmlsingle/
