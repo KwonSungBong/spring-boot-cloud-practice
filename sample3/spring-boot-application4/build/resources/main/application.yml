@@ -4,6 +4,9 @@ server:
 spring:
   cloud:
     stream:
+      kafka:
+        binder:
+          autoAddPartitions: true
       bindings:
         output:
           destination: polledConsumerOut

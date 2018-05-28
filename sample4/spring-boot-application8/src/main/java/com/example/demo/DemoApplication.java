@@ -8,6 +8,7 @@ import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.Input;
 import org.springframework.cloud.stream.annotation.Output;
 import org.springframework.cloud.stream.annotation.StreamListener;
+import org.springframework.cloud.stream.messaging.Processor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.integration.annotation.InboundChannelAdapter;
 import org.springframework.integration.annotation.Poller;
@@ -15,14 +16,27 @@ import org.springframework.integration.core.MessageSource;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.SubscribableChannel;
 import org.springframework.messaging.support.GenericMessage;
+import reactor.core.publisher.Flux;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
+@EnableBinding(Processor.class)
 @SpringBootApplication
 public class DemoApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
+    }
+
+    @StreamListener
+    @Output(Processor.OUTPUT)
+    public Flux<String> aggregate(@Input(Processor.INPUT) Flux<String> inbound) {
+        return inbound;
+//        return inbound.
+//                log()
+//                .window(Duration.ofSeconds(5), Duration.ofSeconds(5))
+//                .flatMap(w -> w.reduce("", (s1,s2)->s1+s2))
+//                .log();
     }
 
     @EnableBinding(Source.class)

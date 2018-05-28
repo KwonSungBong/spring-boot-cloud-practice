@@ -1,0 +1,21 @@
+server:
+  port: 10008
+
+spring:
+  cloud:
+    stream:
+      bindings:
+#        test-sink:
+#          destination: polledConsumerOut
+#        test-source:
+#          destination: polledConsumerIn
+#          group: polledConsumerApplication
+#          content-type: text/plain
+        output:
+          destination: transformed
+        test-sink:
+          destination: transformed
+        input:
+          destination: testtock
+        test-source:
+          destination: testtock
