@@ -1,0 +1,13 @@
+server:
+  port: 10005
+
+spring:
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: polledConsumerOut
+        input:
+          destination: polledConsumerIn
+          group: polledConsumerApplication
+          content-type: text/plain
