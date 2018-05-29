@@ -1,0 +1,13 @@
+server:
+  port: 10016
+
+spring:
+  cloud:
+    stream:
+      instance-count: 1
+      instance-index: 0
+      bindings:
+        input:
+          destination: topic2
+          group: myGroup
+          content-type: text/plain

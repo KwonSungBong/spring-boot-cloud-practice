@@ -1,0 +1,18 @@
+server:
+  port: 10017
+
+spring:
+  cloud:
+    stream:
+      instance-count: 1
+      instance-index: 0
+      kafka:
+        binder:
+          auto-add-partitions: true
+          auto-create-topics: true
+          min-partition-count: 2
+      bindings:
+        output1:
+          destination: topic1
+        output2:
+          destination: topic2
