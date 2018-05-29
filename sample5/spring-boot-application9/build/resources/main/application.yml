@@ -1,0 +1,15 @@
+server:
+  port: 10009
+
+spring:
+  cloud:
+    stream:
+      instance-count: 1
+      instance-index: 0
+      bindings:
+        input:
+          destination: partitioned.topic
+          group: myGroup
+          consumer:
+            concurrency: 1
+            partitioned: true

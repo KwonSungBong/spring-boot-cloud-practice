@@ -1,0 +1,27 @@
+server:
+  port: 10014
+
+spring:
+  cloud:
+    stream:
+      instance-count: 1
+      instance-index: 0
+      kafka:
+        binder:
+          auto-add-partitions: true
+          auto-create-topics: true
+          min-partition-count: 2
+#          replication-factor: 2
+      bindings:
+        output:
+          destination: partitioned.topic
+          auto-add-partitions: true
+          partitioned: true
+          partition-count: 4
+          partition-key-expression: headers['partitionKey']
+#          producer:
+#            partition-count: 4
+#            partitioned: true
+#            partition-key-expression: headers['partitionKey']
+#            partition-count: 5
+#      dynamic-destinations:

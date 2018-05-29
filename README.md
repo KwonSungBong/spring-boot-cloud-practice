@@ -13,3 +13,4 @@ https://spring.io/blog/2018/04/19/kafka-streams-and-spring-cloud-stream
 http://www.baeldung.com/spring-cloud-stream
 
 
+https://docs.spring.io/spring-cloud-stream/docs/current/reference/htmlsingle/
