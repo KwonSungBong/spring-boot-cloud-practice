@@ -6,16 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.Input;
 import org.springframework.cloud.stream.annotation.Output;
-import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.binder.PollableMessageSource;
-import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.messaging.MessageChannel;
-import org.springframework.messaging.handler.annotation.Header;
-import org.springframework.messaging.handler.annotation.Payload;
-import org.springframework.messaging.support.MessageBuilder;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -40,15 +34,16 @@ public class DemoApplication {
                 while (true) {
                     // this is where we poll for a message, process it, and send a new one
                     result = input.poll(m -> {
-                        String payload = (String) m.getPayload();
-                        System.out.println("Received: " + payload);
-                        output.send(MessageBuilder.withPayload(payload.toUpperCase())
-                                .copyHeaders(m.getHeaders())
-                                .build());
-                    }, new ParameterizedTypeReference<String>() { });
+                        System.out.println("Received: " + m);
+//                        String payload = (String) m.getPayload();
+//                        System.out.println("Received: " + payload);
+//                        output.send(MessageBuilder.withPayload(payload.toUpperCase())
+//                                .copyHeaders(m.getHeaders())
+//                                .build());
+                    }, new ParameterizedTypeReference<Object>() { });
 
                     try {
-                        Thread.sleep(1_000);
+                        Thread.sleep(100);
                     }
                     catch (InterruptedException e) {
                         Thread.currentThread().interrupt();

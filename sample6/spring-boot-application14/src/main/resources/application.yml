@@ -19,9 +19,3 @@ spring:
           partitioned: true
           partition-count: 4
           partition-key-expression: headers['partitionKey']
-#          producer:
-#            partition-count: 4
-#            partitioned: true
-#            partition-key-expression: headers['partitionKey']
-#            partition-count: 5
-#      dynamic-destinations:
