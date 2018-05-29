@@ -1,8 +1,9 @@
 # spring-boot-cloud-stream-practice
 
-competing consumer relationship
+competing consumer
 
-spring.cloud.stream.bindings.<channelName>.group=test
+https://github.com/spring-cloud/spring-cloud-stream-binder-kafka/blob/master/spring-cloud-stream-binder-kafka-docs/src/main/asciidoc/partitions.adoc
 
-https://dzone.com/articles/dont-use-apache-kafka-consumer-groups-the-wrong-wa
+
+
 

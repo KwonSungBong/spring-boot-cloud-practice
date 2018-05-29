@@ -12,7 +12,9 @@ spring:
           auto-create-topics: true
           min-partition-count: 2
       bindings:
-        output1:
-          destination: topic1
-        output2:
-          destination: topic2
+        output:
+          destination: partitioned.topic
+          producer:
+            partitioned: true
+            partition-key-expression: headers['partitionKey']
+            partition-count: 12

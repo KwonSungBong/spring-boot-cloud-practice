@@ -8,6 +8,5 @@ spring:
       instance-index: 0
       bindings:
         input:
-          destination: topic2
+          destination: partitioned.topic
           group: myGroup
-          content-type: text/plain
