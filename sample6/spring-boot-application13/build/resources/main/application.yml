@@ -12,5 +12,5 @@ spring:
           group: myGroup
           content-type: text/plain
           consumer:
-            concurrency: 1
+            concurrency: 2
             partitioned: true
